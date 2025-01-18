@@ -1,0 +1,66 @@
+.pos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.date-picker-container {
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ffd966;
+  margin-top: 20px;
+  position: relative;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picker-row{
+  position: absolute;
+  height: 40px;
+  opacity: 0.13;
+  background-color: #ffd966;
+  z-index: 9;
+  left: 0;
+  right: 0;
+}
+
+.picker-column::-webkit-scrollbar {
+  display: none;
+}
+
+.picker-column {
+  width: 100px;     
+  height: 250px;    
+  overflow-y: auto; 
+  margin: 0 5px;
+  border-radius: 5px;
+  z-index: 9999;
+  scroll-snap-type: y mandatory;
+}
+
+.picker-item {
+  text-align: center;
+  padding: 8px;
+  scroll-snap-align: center;
+  height: 40px;
+}
+
+.done-button {
+  width: 120px;
+  height: 35px;
+  background-color: #F1C139;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
