@@ -52,16 +52,16 @@ function DatePicker() {
     const element = ref.current;
     const itemHeight = 40;
 
+    // Prevent the default wheel behavior
     event.preventDefault();
 
+    // Determine the scroll direction (positive for down, negative for up)
     const direction = event.deltaY > 0 ? 1 : -1;
 
+    // Adjust the scroll position by one item height
     element.scrollTop += direction * itemHeight;
 
-    handleInfiniteScroll(ref, items);
-  };
-
-  const handleScroll = (ref, items) => {
+    // Ensure infinite scroll behavior
     handleInfiniteScroll(ref, items);
   };
 
@@ -101,26 +101,15 @@ function DatePicker() {
       yearRef.current.addEventListener("wheel", (event) =>
         handleWheelScroll(event, yearRef, years)
       );
-      yearRef.current.addEventListener("scroll", () =>
-        handleScroll(yearRef, years)
-      );
     }
-
     if (monthRef.current) {
       monthRef.current.addEventListener("wheel", (event) =>
         handleWheelScroll(event, monthRef, months)
       );
-      monthRef.current.addEventListener("scroll", () =>
-        handleScroll(monthRef, months)
-      );
     }
-
     if (dayRef.current) {
       dayRef.current.addEventListener("wheel", (event) =>
         handleWheelScroll(event, dayRef, daysArray)
-      );
-      dayRef.current.addEventListener("scroll", () =>
-        handleScroll(dayRef, daysArray)
       );
     }
 
@@ -129,26 +118,15 @@ function DatePicker() {
         yearRef.current.removeEventListener("wheel", (event) =>
           handleWheelScroll(event, yearRef, years)
         );
-        yearRef.current.removeEventListener("scroll", () =>
-          handleScroll(yearRef, years)
-        );
       }
-
       if (monthRef.current) {
         monthRef.current.removeEventListener("wheel", (event) =>
           handleWheelScroll(event, monthRef, months)
         );
-        monthRef.current.removeEventListener("scroll", () =>
-          handleScroll(monthRef, months)
-        );
       }
-
       if (dayRef.current) {
         dayRef.current.removeEventListener("wheel", (event) =>
           handleWheelScroll(event, dayRef, daysArray)
-        );
-        dayRef.current.removeEventListener("scroll", () =>
-          handleScroll(dayRef, daysArray)
         );
       }
     };
